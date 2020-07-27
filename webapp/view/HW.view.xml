@@ -4,7 +4,15 @@
 	controllerName="org.ubb.hw.controller.HW"
 	xmlns="sap.m">
 
-  <Button
+	<Button
 		text="Say Hello"
-		press=".onShowHello"/>
+		press=".onShowHello"
+		type="Critical"
+		icon="https://i.pinimg.com/originals/f5/7e/00/f57e00306f3183cc39fa919fec41418b.jpg"
+		width="7rem"/>
+	<Input
+      value="{/recipient/name}"
+      description="Hello {/recipient/name}"
+      valueLiveUpdate="true"
+      width="60%"/>
 </mvc:View>
