@@ -5,14 +5,25 @@
 	xmlns="sap.m">
 
 	<Button
-		text="Say Hello"
+         id="helloDialogButton"
+         text="{i18n>openDialogButtonText}"
+         press=".onOpenDialog"
+         class="sapUiSmallMarginEnd"/>
+	<Button
+		text="{i18n>showHelloButtonText}"
 		press=".onShowHello"
 		type="Critical"
 		icon="https://i.pinimg.com/originals/f5/7e/00/f57e00306f3183cc39fa919fec41418b.jpg"
-		width="7rem"/>
+		width="10rem"/>
 	<Input
       value="{/recipient/name}"
       description="Hello {/recipient/name}"
+      valueLiveUpdate="true"
+      width="60%"/>
+	  <Input
+	  id="asd"
+      value="{/recipient/asd}"
+      description="Hello {/recipient/asd}"
       valueLiveUpdate="true"
       width="60%"/>
 </mvc:View>
