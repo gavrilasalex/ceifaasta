@@ -18,7 +18,14 @@
 			}
 		}"
 		numberUnit="{view>/currency}"
-      numberState="{= ${invoice>ExtendedPrice} > 50 ? 'Information' : 'Success' }"/>
+      numberState="{= ${invoice>ExtendedPrice} > 50 ? 'Information' : 'Success' }">
+				<firstStatus>
+					<ObjectStatus text="{
+						path: 'invoice>Status',
+						formatter: '.formatter.statusText'
+					}"/>
+				</firstStatus>
+			</ObjectListItem>
       </items>
    </List>
 </mvc:View>
