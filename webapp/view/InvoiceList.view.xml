@@ -51,27 +51,28 @@
 		<items>
 			<ColumnListItem
 				type="Navigation"
-				press=".onPress">
+				press="onPress">
 				<cells>
-					<ObjectNumber number="{invoice>Quantity}" emphasized="false"/>
-					<ObjectIdentifier title="{invoice>ProductName}"/>
+					<ObjectNumber number="{invoice>balance}" emphasized="false"/>
+					<ObjectIdentifier title="{invoice>email}"/>
 					<Text text="{
-						path: 'invoice>Status',
+						path: 'invoice>status',
 						formatter: '.formatter.statusText'
 					}"/>
-					<Text text="{invoice>ShipperName}"/>
+					<Text text="{invoice>company}"/>
 					<ObjectNumber
 						number="{
-							parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}],
+							parts: [{path: 'invoice>age'}, {path: 'view>/currency'}],
 							type: 'sap.ui.model.type.Currency',
 							formatOptions: {
 								showMeasure: false
 							}
 						}"
 						unit="{view>/currency}"
-						state="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success' }"/>
+						state="{= ${invoice>age} > 50 ? 'Error' : 'Success' }"/>
 				</cells>
 			</ColumnListItem>
 		</items>
 	</Table>
+   <Button/>
 </mvc:View>
