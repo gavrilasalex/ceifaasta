@@ -3,22 +3,39 @@
    controllerName="org.ubb.hw.controller.InvoiceList"
    xmlns:mvc="sap.ui.core.mvc">
    <List
+      id="invoiceList"
       headerText="{i18n>invoiceListTitle}"
       class="sapUiResponsiveMargin"
       width="auto"
-      items="{invoice>/Invoices}" >
+      items="{
+         path : 'invoice>/Invoices',
+         sorter : {
+				path : 'ShipperName',
+				group : true,
+            descending : 'true'
+			}
+      }">
+      <headerToolbar>
+         <Toolbar>
+            <Title text="{i18n>invoiceListTitle}"/>
+            <ToolbarSpacer/>
+            <SearchField width="50%" search=".onFilterInvoices"/>
+         </Toolbar>
+      </headerToolbar>
       <items>
          <ObjectListItem
             title="{invoice>Quantity} x {invoice>ProductName}" 
             number="{
-			parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}],
-			type: 'sap.ui.model.type.Currency',
-			formatOptions: {
-				showMeasure: false
-			}
-		}"
-		numberUnit="{view>/currency}"
-      numberState="{= ${invoice>ExtendedPrice} > 50 ? 'Information' : 'Success' }">
+                  parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}],
+                  type: 'sap.ui.model.type.Currency',
+                  formatOptions: {
+                     showMeasure: false
+                  }
+               }"
+               numberUnit="{view>/currency}"
+               numberState="{= ${invoice>ExtendedPrice} > 50 ? 'Information' : 'Success' }"
+               type="Navigation"
+					press="onPress">
 				<firstStatus>
 					<ObjectStatus text="{
 						path: 'invoice>Status',
