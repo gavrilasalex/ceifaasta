@@ -61,6 +61,13 @@
             }
           }
       },
+      "resources": {
+        "css": [
+          {
+            "uri": "css/style.css"
+          }
+        ]
+      },
       "routing": {
         "config": {
         "routerClass": "sap.m.routing.Router",
@@ -73,23 +80,32 @@
         "routes": [
         {
           "pattern": "",
-          "name": "overview",
-          "target": "overview"
+          "name": "login",
+          "target": "login"
         },
         {
           "pattern": "detail/{invoicePath}",
           "name": "detail",
           "target": "detail"
+        },
+        {
+          "pattern": "overview",
+          "name": "overview",
+          "target": "overview"
         }
         ],
         "targets": {
-        "overview": {
-          "viewId": "overview",
-          "viewName": "Overview"
+        "login": {
+          "viewId": "login",
+          "viewName": "Login"
         },
         "detail": {
           "viewId": "detail",
           "viewName": "Detail"
+        },
+        "overview": {
+          "viewId": "overview",
+          "viewName": "Overview"
         }
         }
       }
